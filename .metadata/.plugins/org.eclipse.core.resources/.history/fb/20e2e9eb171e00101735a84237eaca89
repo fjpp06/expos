@@ -1,0 +1,17 @@
+package com.fjpp.expos.controller;
+
+
+import javax.swing.*;
+import com.fjpp.expos.screens.*;
+
+public class LoginController {
+	
+	LoginScreen loginop;
+	JButton btnLogin;
+	
+	public LoginController(LoginScreen loginScreen) {
+		this.loginop = loginScreen;
+		
+		loginop.l
+	}
+}

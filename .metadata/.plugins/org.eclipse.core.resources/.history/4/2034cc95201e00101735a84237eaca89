@@ -1,0 +1,47 @@
+package com.fjpp.expos.controller;
+
+import com.fjpp.expos.dal.DBCon;
+import com.fjpp.expos.screens.*;
+import javax.swing.*;
+import java.sql.*;
+
+public class SignupController {
+	
+	private SignupScreen screen;
+	
+	public SignupController(SignupScreen signupScreen) {
+		this.screen = signupScreen;
+		
+		screen.signup.addActionListener(e -> Signup());
+	}
+	
+	private void Signup() {
+		Connection conn = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		
+		String query = "SELECT INTO usersinfo VALUES (user_name=?, user_email=?, user_password=?)";
+		try {
+			conn = DBCon.connector();
+			pst = conn.prepareStatement(query);
+			pst.setString(1, screen.name.getText());
+			pst.setString(2, screen.email.getText());
+			String Password = new String(screen.password.getPassword());
+			pst.setString(3, Password);
+			
+			rs = pst.executeQuery();
+			
+			if (rs.next()) {
+				MainScreen mainscreen = new MainScreen();
+				mainscreen.frame.setVisible(true);
+				screen.frame.dispose();
+			} else {
+				JOptionPane.showMessageDialog(null, "email or password invalid!");
+			}
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+	}
+
+}

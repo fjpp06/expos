@@ -1,0 +1,16 @@
+package com.fjpp.expos.screens;
+
+import javax.swing.*;
+
+public class MainScreen {
+	
+	JFrame frame;
+	
+	public MainScreen() {
+		
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500, 500);
+		frame.setLayout(null);
+	}
+}

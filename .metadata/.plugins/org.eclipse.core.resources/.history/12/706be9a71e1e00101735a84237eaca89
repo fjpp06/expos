@@ -1,0 +1,32 @@
+package com.fjpp.expos.screens;
+
+import com.fjpp.expos.controller.SignupController;
+import javax.swing.*;
+import java.awt.*;
+
+public class SignupScreen {
+	
+	public JFrame frame;
+	JLabel lblTitle;
+	JLabel lblEmail;
+	public JTextField email;
+	JLabel lblPassword;
+	public JPasswordField password;
+	public JButton login;
+	
+	public SignupScreen() {
+		
+		frame = new JFrame();
+		
+		frame.setTitle("Login");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		lblTitle = new JLabel("Please Signup!");
+		lblTitle.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
+		lblTitle.setBounds(75, 25, 400, 100);
+		frame.add(lblTitle);
+	}
+}

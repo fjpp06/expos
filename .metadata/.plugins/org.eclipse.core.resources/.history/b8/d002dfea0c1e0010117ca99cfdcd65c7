@@ -1,0 +1,7 @@
+package com.fjpp.expos.dal;
+
+import java.sql.*;
+
+public class DBCon {
+
+}

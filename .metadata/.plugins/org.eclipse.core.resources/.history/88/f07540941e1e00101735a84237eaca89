@@ -1,0 +1,16 @@
+package com.fjpp.expos.screens;
+
+import com.fjpp.expos.controller.SignupController;
+import javax.swing.*;
+import java.awt.*;
+
+public class SignupScreen {
+	
+	public JFrame frame;
+	JLabel lblTitle;
+	JLabel lblEmail;
+	public JTextField email;
+	JLabel lblPassword;
+	public JPasswordField password;
+	public JButton login;
+}

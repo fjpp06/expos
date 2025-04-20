@@ -1,0 +1,45 @@
+package com.fjpp.expos.screens;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class LoginScreen {
+
+	JFrame frame;
+	JLabel lblEmail;
+	JTextField email;
+	JLabel lblPassword;
+	JPasswordField password;
+	JButton login;
+	
+	public LoginScreen() {
+		
+		frame = new JFrame();
+		
+		frame.setTitle("Login");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		lblEmail = new JLabel("E-mail");
+		lblEmail.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblEmail.setBounds(75, 100, 50, 50);
+		frame.add(lblEmail);
+	
+		lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblPassword.setBounds(75, 150, 75, 50);
+		frame.add(lblPassword);
+		
+		email = new JTextField();
+		email.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		email.setBounds(150, 100, 300, 50);
+		frame.add(email);
+		
+		password = new JPasswordField();
+		password.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		password.setBounds(150, 150, 300, 50);
+		frame.add(password);
+	}
+}

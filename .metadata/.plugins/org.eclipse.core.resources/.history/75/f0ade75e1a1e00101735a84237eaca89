@@ -1,0 +1,13 @@
+package com.fjpp.expos.screens;
+
+import javax.swing.*;
+
+public class MainScreen {
+	
+	JFrame frame;
+	
+	public MainScreen() {
+		frame = new JFrame();
+		frame.setBounds(500, 500);
+	}
+}

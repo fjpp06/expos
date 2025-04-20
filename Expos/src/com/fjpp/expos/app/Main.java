@@ -1,0 +1,9 @@
+package com.fjpp.expos.app;
+
+import com.fjpp.expos.screens.InitialScreen;
+
+public class Main {
+	public static void main(String[] args) {
+		new InitialScreen();
+	}
+}

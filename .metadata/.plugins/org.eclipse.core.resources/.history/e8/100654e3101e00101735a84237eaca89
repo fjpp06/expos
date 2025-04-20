@@ -1,0 +1,9 @@
+package com.fjpp.expos.controller;
+
+import com.fjpp.expos.screens.InitialScreen;
+
+public class Main {
+	public static void main(String[] args) {
+		InitialScreen start = new InitialScreen();
+	}
+}
