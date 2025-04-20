@@ -1,0 +1,38 @@
+package com.fjpp.expos.screens;
+
+import com.fjpp.expos.dal.DBCon;
+import javax.swing.*;
+import java.sql.*;
+
+public class MainScreen {
+	
+	String userid;
+	public JFrame frame;
+	public String strwelcome;
+	JTextField welcome;
+	
+	public MainScreen(String userId) {
+		this.userid = userId;
+		
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500, 500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		String userName = null;
+	    String query = "SELECT user_name FROM usersinfo WHERE user_id = ?";
+
+	    try (Connection conn = DBCon.connector();
+	         PreparedStatement pst = conn.prepareStatement(query)) {
+
+	        pst.setInt(1, userId);
+	        ResultSet rs = pst.executeQuery();
+
+	        if (rs.next()) {
+	            userName = rs.getString("user_name");
+	        }
+		
+		welcome = new JTextField();
+	}
+}

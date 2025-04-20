@@ -22,27 +22,32 @@ public class SignupScreen {
 		
 		frame.setTitle("Login");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setBackground(Color.GRAY);
 		frame.setSize(500,500);
 		frame.setLayout(null);
 		frame.setVisible(true);
 		
 		lblTitle = new JLabel("Please Signup!");
 		lblTitle.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
+		lblTitle.setForeground(Color.BLACK);
 		lblTitle.setBounds(75, 25, 400, 100);
 		frame.add(lblTitle);
 		
 		lblName = new JLabel("Name");
 		lblName.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblName.setForeground(Color.BLACK);
 		lblName.setBounds(75, 150, 50, 50);
 		frame.add(lblName);
 		
 		lblEmail = new JLabel("E-mail");
 		lblEmail.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblEmail.setForeground(Color.BLACK);
 		lblEmail.setBounds(75, 200, 50, 50);
 		frame.add(lblEmail);
 		
 		lblPassword = new JLabel("Password");
 		lblPassword.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblPassword.setForeground(Color.BLACK);
 		lblPassword.setBounds(75, 250, 75, 50);
 		frame.add(lblPassword);
 		
@@ -63,6 +68,7 @@ public class SignupScreen {
 		
 		signup = new JButton("Signup");
 		signup.setBounds(300, 350, 150, 50);
+		signup.setForeground(Color.BLACK);
 		frame.add(signup);
 		
 		new SignupController(this);

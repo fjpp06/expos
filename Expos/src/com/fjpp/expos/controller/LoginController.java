@@ -32,7 +32,8 @@ public class LoginController {
 			rs = pst.executeQuery();
 			
 			if (rs.next()) {
-				MainScreen mainscreen = new MainScreen();
+			    String userId = rs.getString("user_id");
+			    MainScreen mainscreen = new MainScreen(userId);
 				mainscreen.frame.setVisible(true);
 				screen.frame.dispose();
 			} else {

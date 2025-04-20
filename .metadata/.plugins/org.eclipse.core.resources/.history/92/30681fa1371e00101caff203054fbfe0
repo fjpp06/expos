@@ -1,0 +1,63 @@
+package com.fjpp.expos.screens;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class InitialScreen implements ActionListener{
+	
+	JFrame frame;
+	JLabel lblTitle;
+	// JLabel lblImg;
+	JButton btnLogin;
+	JButton btnSignup;
+	
+	public InitialScreen() {
+		
+		// background
+		frame = new JFrame();
+		
+		frame.setTitle("Fjpp Expos");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		// title
+		lblTitle = new JLabel("Fjpp Expos");
+		lblTitle.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
+		lblTitle.setBounds(160, 25, 400, 100);
+		frame.add(lblTitle);
+		
+		// icon
+		lblImg = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("dog.png")).getImage();
+		lblImg.setIcon(new ImageIcon(img));
+		frame.add(lblImg);
+		
+		// login button
+		btnLogin = new JButton("Login");
+		btnLogin.setBounds(85, 250, 150, 50);
+		btnLogin.addActionListener(this);
+		frame.add(btnLogin);
+		
+		// signup button
+		btnSignup = new JButton("Sign up");
+		btnSignup.setBounds(265, 250, 150, 50);
+		btnSignup.addActionListener(this);
+		frame.add(btnSignup);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnLogin) {
+			frame.dispose();
+			new LoginScreen();
+		}
+		
+		if (e.getSource() == btnSignup) {
+			frame.dispose();
+			new SignupScreen();
+		}
+	}
+}

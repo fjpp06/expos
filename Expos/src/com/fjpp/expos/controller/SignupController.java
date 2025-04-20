@@ -31,7 +31,8 @@ public class SignupController {
 			int rowsAffected = pst.executeUpdate();
 			
 			if (rowsAffected > 0) {
-				MainScreen mainscreen = new MainScreen();
+				String userName = screen.name.getText();
+				MainScreen mainscreen = new MainScreen(userName);
 				mainscreen.frame.setVisible(true);
 				screen.frame.dispose();
 			} else {

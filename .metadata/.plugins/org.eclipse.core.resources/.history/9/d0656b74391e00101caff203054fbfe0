@@ -1,0 +1,70 @@
+package com.fjpp.expos.screens;
+
+import com.fjpp.expos.controller.SignupController;
+import javax.swing.*;
+import java.awt.*;
+
+public class SignupScreen {
+	
+	public JFrame frame;
+	JLabel lblTitle;
+	JLabel lblName;
+	public JTextField name;
+	JLabel lblEmail;
+	public JTextField email;
+	JLabel lblPassword;
+	public JPasswordField password;
+	public JButton signup;
+	
+	public SignupScreen() {
+		
+		frame = new JFrame();
+		
+		frame.setTitle("Login");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		lblTitle = new JLabel("Please Signup!");
+		lblTitle.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
+		lblTitle.setBounds(75, 25, 400, 100);
+		frame.add(lblTitle);
+		
+		lblName = new JLabel("Name");
+		lblName.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblName.setBounds(75, 150, 50, 50);
+		frame.add(lblName);
+		
+		lblEmail = new JLabel("E-mail");
+		lblEmail.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblEmail.setBounds(75, 200, 50, 50);
+		frame.add(lblEmail);
+		
+		lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblPassword.setBounds(75, 250, 75, 50);
+		frame.add(lblPassword);
+		
+		name = new JTextField();
+		name.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		name.setBounds(150, 150, 300, 50);
+		frame.add(name);
+		
+		email = new JTextField();
+		email.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		email.setBounds(150, 200, 300, 50);
+		frame.add(email);
+		
+		password = new JPasswordField();
+		password.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		password.setBounds(150, 250, 300, 50);
+		frame.add(password);
+		
+		signup = new JButton("Signup");
+		signup.setBounds(300, 350, 150, 50);
+		frame.add(signup);
+		
+		new SignupController(this);
+	}
+}

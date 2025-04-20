@@ -20,22 +20,26 @@ public class LoginScreen {
 		
 		frame.setTitle("Login");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setBackground(Color.GRAY);
 		frame.setSize(500,500);
 		frame.setLayout(null);
 		frame.setVisible(true);
 		
 		lblTitle = new JLabel("Please Login!");
 		lblTitle.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
+		lblTitle.setForeground(Color.BLACK);
 		lblTitle.setBounds(75, 25, 400, 100);
 		frame.add(lblTitle);
 		
 		lblEmail = new JLabel("E-mail");
 		lblEmail.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblEmail.setForeground(Color.BLACK);
 		lblEmail.setBounds(75, 150, 50, 50);
 		frame.add(lblEmail);
 	
 		lblPassword = new JLabel("Password");
 		lblPassword.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblPassword.setForeground(Color.BLACK);
 		lblPassword.setBounds(75, 200, 75, 50);
 		frame.add(lblPassword);
 		
@@ -51,6 +55,7 @@ public class LoginScreen {
 		
 		login = new JButton("Login");
 		login.setBounds(300, 300, 150, 50);
+		login.setForeground(Color.BLACK);
 		frame.add(login);
 		
 		new LoginController(this);

@@ -1,0 +1,22 @@
+package com.fjpp.expos.screens;
+
+import javax.swing.*;
+
+public class MainScreen {
+	
+	String userid;
+	public JFrame frame;
+	public String strwelcome;
+	JTextField welcome;
+	
+	public MainScreen(String userId) {
+		
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500, 500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		welcome = new JTextField();
+	}
+}

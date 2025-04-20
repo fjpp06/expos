@@ -1,7 +1,0 @@
-package com.fjpp.expos.controller;
-
-import com.fjpp.expos.screens.*;
-
-public class AccountController {
-	
-}

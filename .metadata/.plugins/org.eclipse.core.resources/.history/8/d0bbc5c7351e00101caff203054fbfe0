@@ -1,0 +1,48 @@
+package com.fjpp.expos.screens;
+
+import javax.swing.*;
+import java.awt.event.*;
+
+
+public class InitialScreen implements ActionListener{
+	
+	JFrame frame;
+	JButton btnLogin;
+	JButton btnSignup;
+	
+	public InitialScreen() {
+		
+		// background
+		frame = new JFrame();
+		
+		frame.setTitle("Fjpp Expos");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		// login button
+		btnLogin = new JButton("Login");
+		btnLogin.setBounds(85, 250, 150, 50);
+		btnLogin.addActionListener(this);
+		frame.add(btnLogin);
+		
+		// signup button
+		btnSignup = new JButton("Sign up");
+		btnSignup.setBounds(265, 250, 150, 50);
+		btnSignup.addActionListener(this);
+		frame.add(btnSignup);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnLogin) {
+			frame.dispose();
+			new LoginScreen();
+		}
+		
+		if (e.getSource() == btnSignup) {
+			frame.dispose();
+			new SignupScreen();
+		}
+	}
+}

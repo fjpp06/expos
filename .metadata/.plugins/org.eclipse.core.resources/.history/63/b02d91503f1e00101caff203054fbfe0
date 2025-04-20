@@ -1,0 +1,49 @@
+package com.fjpp.expos.controller;
+
+import com.fjpp.expos.dal.DBCon;
+import com.fjpp.expos.screens.*;
+import javax.swing.*;
+import java.sql.*;
+
+public class SignupController {
+	
+	private SignupScreen screen;
+	
+	public SignupController(SignupScreen signupScreen) {
+		this.screen = signupScreen;
+		
+		screen.signup.addActionListener(e -> Signup());
+	}
+	
+	private void Signup() {
+		Connection conn = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		
+		String query = "INSERT INTO usersinfo (user_name, user_email, user_password) VALUES (?, ?, ?)";
+		try {
+			conn = DBCon.connector();
+			pst = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			pst.setString(1, screen.name.getText());
+			pst.setString(2, screen.email.getText());
+			String Password = new String(screen.password.getPassword());
+			pst.setString(3, Password);
+			
+			int rowsAffected = pst.executeUpdate();
+			
+			if (rowsAffected > 0) {
+				rs = pst.getGeneratedKeys();
+				String userName = rs.getString("user_name");
+				MainScreen mainscreen = new MainScreen(userId);
+				mainscreen.frame.setVisible(true);
+				screen.frame.dispose();
+			} else {
+				JOptionPane.showMessageDialog(null, "email is already used!");
+			}
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+	}
+
+}
