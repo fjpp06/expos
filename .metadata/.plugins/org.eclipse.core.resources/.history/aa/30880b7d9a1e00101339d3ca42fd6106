@@ -1,0 +1,53 @@
+package com.fjpp.expos.screens;
+
+import com.fjpp.expos.dal.DBCon;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+
+public class MainScreen implements ActionListener{
+	
+	String userid;
+	String username;
+	public JFrame frame;
+	public String strwelcome;
+	JLabel welcome;
+	JButton uplDog;
+	JButton entryExpo;
+	
+	public MainScreen(String userId, String userName) {
+		this.userid = userId;
+		this.username = userName;
+		
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500, 500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		welcome = new JLabel("");
+		welcome.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
+		welcome.setForeground(Color.BLACK);
+		welcome.setBounds(100, 25, 400, 100);
+		frame.add(welcome);
+		
+		// dynamic welcome message
+		welcome.setText("Welcome, " + userName);
+		
+		uplDog = new JButton("Upload Dog");
+		uplDog.setBounds(85, 250, 150, 50);
+		uplDog.setForeground(Color.BLACK);
+		uplDog.addActionListener(this);
+		frame.add(uplDog);
+		
+		entryExpo = new JButton("Entry Expo");
+		entryExpo.setBounds(265, 250, 150, 50);
+	
+   }
+
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+}

@@ -33,7 +33,8 @@ public class LoginController {
 			
 			if (rs.next()) {
 			    String userId = rs.getString("user_id");
-			    MainScreen mainscreen = new MainScreen(userId);
+			    String userName = rs.getString("user_name");
+			    MainScreen mainscreen = new MainScreen(userId, userName);
 				mainscreen.frame.setVisible(true);
 				screen.frame.dispose();
 			} else {

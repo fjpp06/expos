@@ -1,0 +1,62 @@
+package com.fjpp.expos.controller;
+
+import com.fjpp.expos.screens.*;
+import com.fjpp.expos.model.*;
+import com.fjpp.expos.dal.DBCon;
+import javax.swing.*;
+import java.awt.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class ExpoController {
+	
+	private ExpoScreen screen;
+	
+	public ExpoController(ExpoScreen expoScreen) {
+		this.screen = expoScreen;
+		
+		screen.entry.addActionListener(e -> entryExpo());
+	}
+	
+	private void entryExpo() {
+		Connection conn = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		
+		String query = "INSERT INTO entriesinfo (dog_id, expo_id, class) VALUES (?, ?, ?)";
+		try {
+			conn = DBCon.connector();
+			pst = conn.prepareStatement(query);
+			Dog selectedDog = (Dog) screen.dogComboBox.getSelectedItem();
+			pst.setString(1, selectedDog.getDogId());
+			Expo selectedExpo = (Expo) screen.expoComboBox.getSelectedItem();
+			pst.setString(2, selectedExpo.getExpoId());
+			String Password = new String(screen.password.getPassword());
+			pst.setString(3, Password);
+			
+			int rowsAffected = pst.executeUpdate();
+			
+			if (rowsAffected > 0) {
+				String queryId = "SELECT user_id FROM usersinfo WHERE user_email = ?";
+				
+				PreparedStatement pstId = conn.prepareStatement(queryId);
+				pstId.setString(1, screen.email.getText());
+				rs = pstId.executeQuery();
+				
+				if (rs.next()) {
+					String userId = rs.getString("user_id");
+					String userName = screen.name.getText();
+					MainScreen mainscreen = new MainScreen(userId, userName);
+					mainscreen.frame.setVisible(true);
+					screen.frame.dispose();
+				}	
+			} else {
+				JOptionPane.showMessageDialog(null, "email is already used!");
+			}
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+	}
+}

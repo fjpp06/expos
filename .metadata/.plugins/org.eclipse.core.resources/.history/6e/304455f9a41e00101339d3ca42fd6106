@@ -1,0 +1,27 @@
+package com.fjpp.expos.controller;
+
+import com.fjpp.expos.screens.*;
+import com.fjpp.expos.model.*;
+import com.fjpp.expos.dal.DBCon;
+import javax.swing.*;
+import java.awt.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class ExpoController {
+	
+	private ExpoScreen exposcreen;
+	
+	public ExpoController(ExpoScreen expoScreen) {
+		this.exposcreen = expoScreen;
+		
+		exposcreen.entry.addActionListener(e -> entryExpo());
+	}
+	
+	private void entryExpo() {
+		Connection conn = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+	}
+}

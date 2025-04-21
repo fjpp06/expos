@@ -1,0 +1,54 @@
+package com.fjpp.expos.controller;
+
+import com.fjpp.expos.screens.*;
+import com.fjpp.expos.model.*;
+import com.fjpp.expos.dal.DBCon;
+import javax.swing.*;
+import java.awt.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class ExpoController {
+	
+	private ExpoScreen screen;
+	
+	public ExpoController(ExpoScreen expoScreen) {
+		this.screen = expoScreen;
+		
+		screen.entry.addActionListener(e -> entryExpo());
+	}
+	
+	private void entryExpo() {
+		Connection conn = null;
+		PreparedStatement pst = null;
+		
+		String query = "INSERT INTO entriesinfo (dog_id, expo_id, class) VALUES (?, ?, ?)";
+		try {
+			conn = DBCon.connector();
+			pst = conn.prepareStatement(query);
+			Dog selectedDog = (Dog) screen.dogComboBox.getSelectedItem();
+			pst.setString(1, selectedDog.getDogId());
+			Expo selectedExpo = (Expo) screen.expoComboBox.getSelectedItem();
+			pst.setString(2, selectedExpo.getExpoId());
+			String selectedClass = (String) screen.classComboBox.getSelectedItem();
+			pst.setString(3, selectedClass);
+			
+			int rowsAffected = pst.executeUpdate();
+			
+			if (rowsAffected > 0) {
+					String userId = screen.userid;
+					String userName = screen.username;
+					MainScreen mainscreen = new MainScreen(userId, userName);
+					mainscreen.frame.setVisible(true);
+					screen.frame.dispose();
+				
+			} else {
+				JOptionPane.showMessageDialog(null, "something went wrong with your entry! Please try again.");
+			}
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+	}
+}

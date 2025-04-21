@@ -1,0 +1,5 @@
+package com.fjpp.expos.model;
+
+public class Dog {
+
+}

@@ -1,0 +1,38 @@
+package com.fjpp.expos.model;
+
+public class Expo {
+	
+	public String expoId;
+	public String expoName;
+	public String expoDate;
+	
+	public Expo(String expoId, String expoName, String expoDate) {
+		this.expoId = expoId;
+		this.expoName = expoName;
+		this.expoDate = expoDate;
+	}
+	
+	public String getExpoId() {
+		return expoId;
+	}
+	
+	public void setExpoId(String expoId) {
+		this.expoId = expoId;
+	}
+	
+	public String getExpoName() {
+		return expoName;
+	}
+	
+	public void setExpoName(String expoName) {
+		this.expoName = expoName;
+	}
+	
+	public String getExpoDate() {
+		return expoDate;
+	}
+	
+	public void setExpoDate(String expoDate) {
+		this.expoDate = expoDate;
+	}
+}

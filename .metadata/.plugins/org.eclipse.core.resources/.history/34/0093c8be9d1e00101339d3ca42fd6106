@@ -1,0 +1,48 @@
+package com.fjpp.expos.controller;
+
+import com.fjpp.expos.dal.DBCon;
+import com.fjpp.expos.screens.*;
+import javax.swing.*;
+
+import java.awt.Font;
+import java.sql.*;
+
+public class DogController {
+	
+	private DogScreen dogscreen;
+
+	public DogController(DogScreen dogScreen) {
+		this.dogscreen = dogScreen;
+		
+		dogscreen.register.addActionListener(e -> RegisterDog());
+	}
+	
+	private void RegisterDog() {
+		Connection conn = null;
+		PreparedStatement pst = null;
+		
+		String query = "INSERT INTO dogsinfo (dog_name, dog_breed, dog_birthdate, owner_id) VALUES (?, ?, ?, ?)";
+		try {
+			conn = DBCon.connector();
+			pst = conn.prepareStatement(query);
+			pst.setString(1, dogscreen.name.getText());
+			pst.setString(2, dogscreen.breed.getText());
+			pst.setString(3, dogscreen.birthdate.getText());
+			pst.setString(4, dogscreen.userid);
+			
+			int rowsAffected = pst.executeUpdate();
+			
+			if (rowsAffected > 0) {
+				dogscreen.frame.dispose();
+				MainScreen mainscreen = new MainScreen(dogscreen.userid, dogscreen.username);
+				mainscreen.frame.setVisible(true);
+				mainscreen.welcome.setText("Dog registered successfully!");
+				mainscreen.welcome.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
+			} else {
+				JOptionPane.showMessageDialog(null, "Failed to register dog! Verify the information.");
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+	}
+}

@@ -18,6 +18,7 @@ public class SignupController {
 	private void Signup() {
 		Connection conn = null;
 		PreparedStatement pst = null;
+		ResultSet rs = null;
 		
 		String query = "INSERT INTO usersinfo (user_name, user_email, user_password) VALUES (?, ?, ?)";
 		try {
@@ -31,10 +32,19 @@ public class SignupController {
 			int rowsAffected = pst.executeUpdate();
 			
 			if (rowsAffected > 0) {
-				String userName = screen.name.getText();
-				MainScreen mainscreen = new MainScreen(userName);
-				mainscreen.frame.setVisible(true);
-				screen.frame.dispose();
+				String queryId = "SELECT user_id FROM usersinfo WHERE user_email = ?";
+				
+				PreparedStatement pstId = conn.prepareStatement(queryId);
+				pstId.setString(1, screen.email.getText());
+				rs = pstId.executeQuery();
+				
+				if (rs.next()) {
+					String userId = rs.getString("user_id");
+					String userName = screen.name.getText();
+					MainScreen mainscreen = new MainScreen(userId, userName);
+					mainscreen.frame.setVisible(true);
+					screen.frame.dispose();
+				}	
 			} else {
 				JOptionPane.showMessageDialog(null, "email is already used!");
 			}

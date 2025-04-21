@@ -1,0 +1,13 @@
+package com.fjpp.expos.screens;
+
+public class DogScreen {
+	
+	String userid;
+	String username;
+	
+	
+	public DogScreen(String userId, String userName) {
+		this.userid = userId;
+		this.username = userName;
+	}
+}

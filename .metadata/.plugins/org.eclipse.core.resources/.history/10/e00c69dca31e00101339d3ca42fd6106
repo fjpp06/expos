@@ -1,0 +1,15 @@
+package com.fjpp.expos.model;
+
+public class Class {
+	
+	public String[] class = { 
+		    "bebe", 
+		    "cachorro", 
+		    "junior", 
+		    "intermedia", 
+		    "aberta", 
+		    "trabalho", 
+		    "campeao", 
+		    "veterano"
+		};
+}

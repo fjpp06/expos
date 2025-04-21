@@ -1,0 +1,63 @@
+package com.fjpp.expos.model;
+
+public class Dog {
+	
+	String dogId;
+	String dogName;
+	String dogBreed;
+	String dogAge;
+	String dogOwner;
+	
+	public Dog(String dogId, String dogName, String dogBreed, String dogAge, String dogOwner) {
+		this.dogId = dogId;
+		this.dogName = dogName;
+		this.dogBreed = dogBreed;
+		this.dogAge = dogAge;
+		this.dogOwner = dogOwner;
+	}
+	
+	public String getDogId() {
+		return dogId;
+	}
+	
+	public void setDogId(String dogId) {
+		this.dogId = dogId;
+	}
+	
+	public String getDogName() {
+		return dogName;
+	}
+	
+	public void setDogName(String dogName) {
+		this.dogName = dogName;
+	}
+	
+	public String getDogBreed() {
+		return dogBreed;
+	}
+	
+	public void setDogBreed(String dogBreed) {
+		this.dogBreed = dogBreed;
+	}
+	
+	public String getDogAge() {
+		return dogAge;
+	}
+	
+	public void setDogAge(String dogAge) {
+		this.dogAge = dogAge;
+	}
+	
+	public String getDogOwner() {
+		return dogOwner;
+	}
+	
+	public void setDogOwner(String dogOwner) {
+		this.dogOwner = dogOwner;
+	}
+	
+	@Override
+	public String toString() {
+		return dogId + " - " + dogName + " - " + dogBreed;
+	}
+}

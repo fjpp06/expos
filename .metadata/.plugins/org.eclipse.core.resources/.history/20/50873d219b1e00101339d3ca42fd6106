@@ -1,0 +1,20 @@
+package com.fjpp.expos.screens;
+
+import com.fjpp.expos.controller.DogController;
+import javax.swing.*;
+import java.awt.*;
+
+public class DogScreen {
+	
+	String userid;
+	String username;
+	JFrame frame;
+	
+	
+	public DogScreen(String userId, String userName) {
+		this.userid = userId;
+		this.username = userName;
+		
+		
+	}
+}

@@ -1,0 +1,73 @@
+package com.fjpp.expos.screens;
+
+import com.fjpp.expos.dal.DBCon;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+
+public class MainScreen implements ActionListener{
+	
+	String userid;
+	public JFrame frame;
+	public String strwelcome;
+	JLabel welcome;
+	JButton uplDog;
+	JButton entryExpo;
+	
+	public MainScreen(String userId) {
+		this.userid = userId;
+		
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500, 500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		welcome = new JLabel("");
+		welcome.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
+		welcome.setForeground(Color.BLACK);
+		welcome.setBounds(160, 25, 400, 100);
+		frame.add(welcome);
+		
+		/*
+		System.out.println("estou aqui");
+		if ((userId.charAt(0) < 'a' && userId.charAt(0) > 'z') || (userId.charAt(0) < 'A' && userId.charAt(0) > 'Z')) {
+			System.out.println("é numero!");
+			String query = "SELECT user_name FROM usersinfo WHERE user_id = ?";
+
+		       try (Connection conn = DBCon.connector();
+		            PreparedStatement pst = conn.prepareStatement(query)) {
+
+		           pst.setString(1, userId);
+		           ResultSet rs = pst.executeQuery();
+
+		           if (rs.next()) {
+		               String userName = rs.getString("user_name");
+		               welcome.setText("Welcome, " + userName);
+		           }
+
+		       } catch (Exception e) {
+		           e.printStackTrace();
+		           JOptionPane.showMessageDialog(null, "Error loading user name: " + e.getMessage());
+		       }
+		       
+		} else {
+			welcome.setText("Welcome, " + userId);
+		}
+		*/
+		
+		
+		uplDog = new JButton("Upload Dog");
+		uplDog.setBounds(85, 250, 150, 50);
+		uplDog.setForeground(Color.BLACK);
+		uplDog.addActionListener(this);
+		frame.add(uplDog);
+	
+   }
+
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+}

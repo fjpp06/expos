@@ -1,0 +1,8 @@
+package com.fjpp.expos.controller;
+
+public class DogController {
+
+	public DogController(DogScreen dogScreen) {
+		this.dogScreen = dogScreen;
+	}
+}

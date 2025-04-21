@@ -1,0 +1,72 @@
+package com.fjpp.expos.screens;
+
+import com.fjpp.expos.controller.DogController;
+import javax.swing.*;
+import java.awt.*;
+
+public class DogScreen {
+	
+	String userid;
+	public JFrame frame;
+	JLabel lblTitle;
+	JLabel lblName;
+	JLabel lblBreed;
+	JLabel lblBirthdate;
+	public JTextField name;
+	public JTextField breed;
+	public JTextField birthdate;
+	
+	
+	public DogScreen(String userId) {
+		this.userid = userId;
+		
+		frame = new JFrame();
+		
+		frame.setTitle("Register Dog");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setBackground(Color.GRAY);
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		lblTitle = new JLabel("Register your Dog!");
+		lblTitle.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
+		lblTitle.setForeground(Color.BLACK);
+		lblTitle.setBounds(75, 25, 400, 100);
+		frame.add(lblTitle);
+		
+		lblName = new JLabel("Name");
+		lblName.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblName.setForeground(Color.BLACK);
+		lblName.setBounds(75, 150, 50, 50);
+		frame.add(lblName);
+		
+		lblEmail = new JLabel("E-mail");
+		lblEmail.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblEmail.setForeground(Color.BLACK);
+		lblEmail.setBounds(75, 200, 50, 50);
+		frame.add(lblEmail);
+		
+		lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblPassword.setForeground(Color.BLACK);
+		lblPassword.setBounds(75, 250, 75, 50);
+		frame.add(lblPassword);
+		
+		name = new JTextField();
+		name.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		name.setBounds(150, 150, 300, 50);
+		frame.add(name);
+		
+		breed = new JTextField();
+		breed.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		breed.setBounds(150, 200, 300, 50);
+		frame.add(breed);
+		
+		birthdate = new JTextField("yyyy-mm-dd", 10);
+		birthdate.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		birthdate.setBounds(150, 250, 300, 50);
+		frame.add(birthdate);
+		
+	}
+}

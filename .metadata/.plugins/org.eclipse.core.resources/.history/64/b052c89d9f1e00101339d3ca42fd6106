@@ -1,0 +1,68 @@
+package com.fjpp.expos.screens;
+
+import com.fjpp.expos.controller.ExpoController;
+import javax.swing.*;
+import java.awt.*;
+
+public class ExpoScreen {
+	
+	public String userid;
+	public String username;
+	public JFrame frame;
+	JLabel lblTitle;
+	JLabel lblDog;
+	JLabel lblExpo;
+	JLabel lblClass;
+	public JTextField name;
+	public JTextField breed;
+	public JTextField birthdate;
+	public JButton entry;
+	
+	
+	public ExpoScreen(String userId, String userName) {
+		this.userid = userId;
+		this.username = userName;
+		
+		frame = new JFrame();
+		
+		frame.setTitle("Entry Expo");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setBackground(Color.GRAY);
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		lblTitle = new JLabel("Entry your Dog to the Expo!");
+		lblTitle.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
+		lblTitle.setForeground(Color.BLACK);
+		lblTitle.setBounds(75, 25, 500, 100);
+		frame.add(lblTitle);
+		
+		lblDog = new JLabel("Dog");
+		lblDog.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblDog.setForeground(Color.BLACK);
+		lblDog.setBounds(75, 150, 50, 50);
+		frame.add(lblDog);
+		
+		lblExpo = new JLabel("Expo");
+		lblExpo.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblExpo.setForeground(Color.BLACK);
+		lblExpo.setBounds(75, 200, 50, 50);
+		frame.add(lblExpo);
+		
+		lblClass = new JLabel("Class");
+		lblClass.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblClass.setForeground(Color.BLACK);
+		lblClass.setBounds(75, 250, 75, 50);
+		frame.add(lblClass);
+		
+
+		
+		entry = new JButton("Entry Expo");
+		entry.setBounds(300, 350, 150, 50);
+		entry.setForeground(Color.BLACK);
+		frame.add(entry);
+		
+		new ExpoController(this);
+	}
+}

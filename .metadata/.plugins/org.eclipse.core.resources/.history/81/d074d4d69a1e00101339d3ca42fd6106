@@ -1,0 +1,9 @@
+package com.fjpp.expos.screens;
+
+public class DogScreen {
+	
+	
+	public DogScreen(String userId, String userName) {
+		
+	}
+}

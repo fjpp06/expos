@@ -1,0 +1,80 @@
+package com.fjpp.expos.screens;
+
+import com.fjpp.expos.controller.DogController;
+import javax.swing.*;
+import java.awt.*;
+
+public class DogScreen {
+	
+	String userid;
+	public JFrame frame;
+	JLabel lblTitle;
+	JLabel lblName;
+	JLabel lblBreed;
+	JLabel lblBirthdate;
+	public JTextField name;
+	public JTextField breed;
+	public JTextField birthdate;
+	public JButton register;
+	
+	
+	public DogScreen(String userId) {
+		this.userid = userId;
+		
+		frame = new JFrame();
+		
+		frame.setTitle("Register Dog");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setBackground(Color.GRAY);
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+		lblTitle = new JLabel("Register your Dog!");
+		lblTitle.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
+		lblTitle.setForeground(Color.BLACK);
+		lblTitle.setBounds(75, 25, 400, 100);
+		frame.add(lblTitle);
+		
+		lblName = new JLabel("Name");
+		lblName.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblName.setForeground(Color.BLACK);
+		lblName.setBounds(75, 150, 50, 50);
+		frame.add(lblName);
+		
+		lblName = new JLabel("Breed");
+		lblName.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblName.setForeground(Color.BLACK);
+		lblName.setBounds(75, 200, 50, 50);
+		frame.add(lblName);
+		
+		lblBirthdate = new JLabel("Birthdate");
+		lblBirthdate.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		lblBirthdate.setForeground(Color.BLACK);
+		lblBirthdate.setBounds(75, 250, 75, 50);
+		frame.add(lblBirthdate);
+		
+		name = new JTextField();
+		name.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		name.setBounds(150, 150, 300, 50);
+		frame.add(name);
+		
+		breed = new JTextField();
+		breed.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		breed.setBounds(150, 200, 300, 50);
+		frame.add(breed);
+		
+		birthdate = new JTextField();
+		birthdate.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+		birthdate.setBounds(150, 250, 300, 50);
+		birthdate.setToolTipText("Enter your dog's birthdate in the following format DD-MM-YYYY");
+		frame.add(birthdate);
+		
+		register = new JButton("Register");
+		register.setBounds(300, 350, 150, 50);
+		register.setForeground(Color.BLACK);
+		frame.add(register);
+		
+		new DogController(this);
+	}
+}

@@ -1,0 +1,12 @@
+package com.fjpp.expos.controller;
+
+import com.fjpp.expos.screens.*;
+
+public class ExpoController {
+	
+	private ExpoScreen exposcreen;
+	
+	public ExpoController(ExpoScreen expoScreen) {
+		this.exposcreen = expoScreen;
+	}
+}

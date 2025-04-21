@@ -1,0 +1,28 @@
+package com.fjpp.expos.screens;
+
+import com.fjpp.expos.controller.DogController;
+import javax.swing.*;
+import java.awt.*;
+
+public class DogScreen {
+	
+	String userid;
+	String username;
+	public JFrame frame;
+	
+	
+	public DogScreen(String userId, String userName) {
+		this.userid = userId;
+		this.username = userName;
+		
+		frame = new JFrame();
+		
+		frame.setTitle("Login");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setBackground(Color.GRAY);
+		frame.setSize(500,500);
+		frame.setLayout(null);
+		frame.setVisible(true);
+		
+	}
+}

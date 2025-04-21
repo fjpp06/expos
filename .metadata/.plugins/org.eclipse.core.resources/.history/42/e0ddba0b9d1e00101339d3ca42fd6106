@@ -1,0 +1,22 @@
+package com.fjpp.expos.controller;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.fjpp.expos.screens.*;
+
+public class DogController {
+	
+	private DogScreen dogscreen;
+
+	public DogController(DogScreen dogScreen) {
+		this.dogscreen = dogScreen;
+		
+		dogscreen.register.addActionListener(e -> RegisterDog());
+	}
+	
+	private void RegisterDog() {
+		Connection conn = null;
+		PreparedStatement pst = null;
+	}
+}

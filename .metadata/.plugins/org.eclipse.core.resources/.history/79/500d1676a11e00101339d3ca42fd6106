@@ -1,0 +1,10 @@
+package com.fjpp.expos.model;
+
+public class Dog {
+	
+	string dogId;
+	string dogName;
+	string dogBreed;
+	string dogAge;
+	string dogOwner;
+}

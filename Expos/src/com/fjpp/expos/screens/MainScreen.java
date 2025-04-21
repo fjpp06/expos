@@ -1,54 +1,63 @@
 package com.fjpp.expos.screens;
 
-import com.fjpp.expos.dal.DBCon;
 import javax.swing.*;
 import java.awt.*;
-import java.sql.*;
+import java.awt.event.*;
 
-public class MainScreen {
+public class MainScreen implements ActionListener{
 	
 	String userid;
+	String username;
 	public JFrame frame;
 	public String strwelcome;
-	JLabel welcome;
+	public JLabel welcome;
+	JButton regDog;
+	JButton entryExpo;
 	
-	public MainScreen(String userId) {
+	public MainScreen(String userId, String userName) {
 		this.userid = userId;
+		this.username = userName;
 		
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(500, 500);
+		frame.getContentPane().setBackground(Color.GRAY);
 		frame.setLayout(null);
 		frame.setVisible(true);
 		
 		welcome = new JLabel("");
 		welcome.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
 		welcome.setForeground(Color.BLACK);
-		welcome.setBounds(160, 25, 400, 100);
+		welcome.setBounds(100, 25, 400, 100);
 		frame.add(welcome);
 		
-		if ((userId.charAt(0) < 'a' && userId.charAt(0) > 'z') || (userId.charAt(0) < 'A' && userId.charAt(0) > 'Z')) {
-			String query = "SELECT user_name FROM usersinfo WHERE user_id = ?";
-
-		       try (Connection conn = DBCon.connector();
-		            PreparedStatement pst = conn.prepareStatement(query)) {
-
-		           pst.setString(1, userId);
-		           ResultSet rs = pst.executeQuery();
-
-		           if (rs.next()) {
-		               String userName = rs.getString("user_name");
-		               welcome.setText("Welcome, " + userName);
-		           }
-
-		       } catch (Exception e) {
-		           e.printStackTrace();
-		           JOptionPane.showMessageDialog(null, "Error loading user name: " + e.getMessage());
-		       }
-		} else {
-			welcome.setText("Welcome, " + userId);
-		}
+		// dynamic welcome message
+		welcome.setText("Welcome, " + userName);
+		
+		regDog = new JButton("Register Dog");
+		regDog.setBounds(85, 250, 150, 50);
+		regDog.setForeground(Color.BLACK);
+		regDog.addActionListener(this);
+		frame.add(regDog);
+		
+		entryExpo = new JButton("Entry Expo");
+		entryExpo.setBounds(265, 250, 150, 50);
+		entryExpo.setForeground(Color.BLACK);
+		entryExpo.addActionListener(this);
+		frame.add(entryExpo);
 	
    }
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == regDog) {
+			frame.dispose();
+			new DogScreen(userid, username);
+		}
+		
+		if (e.getSource() == entryExpo) {
+			frame.dispose();
+			new ExpoScreen(userid, username);
+		}
+	}
 	
 }
